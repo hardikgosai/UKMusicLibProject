@@ -1,0 +1,96 @@
+﻿@model IEnumerable<UserViewModel>
+@using UKMusicLibProject.Models
+
+
+<section id="Portfolio" class="content">
+
+    <!-- Container -->
+    <div class="container portfolio_title">
+
+        <!-- Title -->
+        <div class="section-title">
+            <h2>User List</h2>
+
+        </div>
+        <!--/Title -->
+
+    </div>
+
+    <div class="portfolio-top"></div>
+
+    <!-- Portfolio Filters -->
+    <div class="portfolio">
+
+        <div id="filters" class="sixteen columns">
+            <ul class="clearfix">
+
+                <li>
+
+                    <a id="createArtist" asp-area="" asp-action="AddUser">
+                        <h5>Add User</h5>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</section>
+<section id="aboutUs">
+    <!--Aboutus-->
+    <div class="inner_wrapper about-us aboutUs-container fadeInLeft animated wow">
+        <div class="container">
+
+
+            <form method="get" asp-action="Index">
+                <p>
+                    <input type="search" placeholder="Enter First Name" value=@ViewData["UserDetail"]
+                           name="empSearch" style="width:500px;" />
+                    <input type="submit" value="Search" class="btn btn-primary" />
+                    <a asp-action="Index">Get All Users</a>
+                </p>
+            </form>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Contact</th>
+                        <th>User Name</th>
+                        <th>Password</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                            <td>@Html.DisplayFor(modelItem => item.FirstName)</td>
+                            <td>@Html.DisplayFor(modelItem => item.LastName)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Address)</td>
+                            <td>@Html.DisplayFor(modelItem => item.ContactNo)</td>
+                            <td>@Html.DisplayFor(modelItem => item.UserName)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Password)</td>
+                            <td>
+                                <a id="editUserModal" asp-action="EditUser" asp-route-id="@item.UserId" class="btn btn-info">
+                                    Edit
+                                </a>
+                                <a id="deleteUserModal" asp-action="Delete" asp-route-id="@item.UserId" class="btn btn-danger">
+                                    Delete
+                                </a>
+                                <a id="detailsusermodel" class="btn btn-success" asp-action="Details" asp-route-id="@item.UserId">Detail</a>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</section>
+

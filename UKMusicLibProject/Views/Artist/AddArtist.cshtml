@@ -1,0 +1,197 @@
+﻿@model ArtistViewModel
+@using UKMusicLibProject.Models
+
+<section id="Portfolio" class="content">
+
+    <!-- Container -->
+    <div class="container portfolio_title">
+
+        <!-- Title -->
+        <div class="section-title">
+            <h2>Add Artist</h2>
+
+        </div>
+        <!--/Title -->
+
+    </div>
+
+    <div class="portfolio-top"></div>
+
+    <!-- Portfolio Filters -->
+    <div class="portfolio">
+
+        <div id="filters" class="sixteen columns">
+            <ul class="clearfix">
+                <li>
+                    <a id="ListArtist" asp-area="" asp-action="ListArtist" data-filter="*">
+                        <h5>List Artist</h5>
+                    </a>
+                </li>
+                <li>
+
+                    <a id="createArtist" asp-area="" asp-action="AddArtist" class="active">
+                        <h5>Add Artist</h5>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        </div>
+        </section>
+
+<section id="AddArtist">
+    <!--Aboutus-->
+    <div class="inner_wrapper about-us aboutUs-container">
+        <div class="container">
+       @*     <h2>Add Artist</h2>*@
+            <form asp-area="" asp-action="AddArtist" enctype="multipart/form-data">
+                <div class="row">
+                    <div>
+                        <div class="form-group">
+                            <label asp-for="ArtistName"></label>
+                            <input asp-for="ArtistName" class="form-control" />
+                            <span asp-validation-for="ArtistName" class="text-danger"></span>
+                        </div>
+                       @* <div class="form-group">
+                            <label asp-for="BirthPlace"></label>
+                            <input asp-for="BirthPlace" class="form-control" />
+                            <span asp-validation-for="BirthPlace" class="text-danger"></span>
+
+                        </div>
+                       *@
+                      @*  <div class="form-group">
+                            <label asp-for="PhoneNo"></label>
+                            <input asp-for="PhoneNo" class="form-control" />
+                            <span asp-validation-for="PhoneNo" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Email"></label>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>*@
+
+
+                        <div class="form-group">
+                            <label asp-for="ArtistPic"></label>
+                            <input type="file" id="ArtistPic" name="ArtistPic" asp-for="ArtistPic" />
+                            <span asp-validation-for="ArtistPic" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Age"></label>
+                            <input asp-for="Age" class="form-control" />
+                            <span asp-validation-for="Age" class="text-danger"></span>
+                        </div>
+                         <div class="form-group">
+                            <label asp-for="Gender"></label>
+                            <select name="Gender" class="form-control" asp-action="GenderId" asp-for="Gender" asp-items="@ViewBag.Gender">
+                                <option value="">Please select one</option>
+                            </select>
+                         
+                            <span asp-validation-for="Gender" class="text-danger"></span>
+                        </div>
+                        @*<div class="form-group">
+                            <label asp-for="Nationality"></label>
+                            <select name="Nationality" class="form-control" asp-action="Nationality" asp-for="Nationality" asp-items="@ViewBag.Nationality">
+                                <option value="">Please select one</option>
+                            </select>
+                            <span asp-validation-for="Nationality" class="text-danger"></span>
+
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Profession"></label>
+                            <select name="Profession" class="form-control" asp-action="Profession" asp-for="Profession" asp-items="@ViewBag.Profession">
+                                <option value="">Please select one</option>
+                            </select>
+                            <span asp-validation-for="Profession" class="text-danger"></span>
+                        </div>*@
+                        <div class="form-group">
+                            <label asp-for="SortDescription"></label>
+                            <input asp-for="SortDescription" class="form-control" />
+                            <span asp-validation-for="SortDescription" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="LongDescription"></label>
+                            <textarea rows="5" asp-for="LongDescription" class="form-control" asp-action="LongDescription" ></textarea>
+                            <span asp-validation-for="LongDescription" class="text-danger"></span>
+                        </div>
+                       @* <div class="form-group">
+                            <label asp-for="Awards"></label>
+                            <input asp-for="Awards" class="form-control" />
+                            <span asp-validation-for="Awards" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Debut"></label>
+                            <input asp-for="Debut" class="form-control" />
+                            <span asp-validation-for="Debut" class="text-danger"></span>
+                        </div>*@
+                        <div class="form-group">
+                            <label asp-for="CurrentLocation"></label>
+                            <input asp-for="CurrentLocation" class="form-control" />
+                            <span asp-validation-for="CurrentLocation" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Country"></label>
+                            <select name="Country" class="form-control" asp-action="Country" asp-for="Country" asp-items="@ViewBag.Country">
+                                <option value="">Please select one</option>
+                            </select>
+                            <span asp-validation-for="Country" class="text-danger"></span>
+
+                        </div>
+                        @*<div class="form-group">
+                            <label asp-for="School"></label>
+                            <input asp-for="School" class="form-control" />
+                            <span asp-validation-for="School" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="College"></label>
+                            <input asp-for="College" class="form-control" />
+                            <span asp-validation-for="College" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Hobbies"></label>
+                            <input asp-for="Hobbies" class="form-control" />
+                            <span asp-validation-for="Hobbies" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="MaritalStatus"></label>
+                            <select name="MaritalStatus" class="form-control" asp-action="MaritalStatus" asp-for="MaritalStatus" asp-items="@ViewBag.Relationship">
+                                <option value="">Please select one</option>
+                            </select>
+                            <span asp-validation-for="MaritalStatus" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Salary"></label>
+                            <input asp-for="Salary" class="form-control" />
+                            <span asp-validation-for="Salary" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="NetWorth"></label>
+                            <input asp-for="NetWorth" class="form-control" />
+                            <span asp-validation-for="NetWorth" class="text-danger"></span>
+                        </div>*@
+                        <div class="form-group">
+                            <label asp-for="ShowInFront"></label>
+                            <input type="checkbox" asp-for="ShowInFront" /> 
+                            <span asp-validation-for="ShowInFront" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ShowInFrontOrder"></label>
+                            <input asp-for="ShowInFrontOrder" class="form-control" />
+                            <span asp-validation-for="ShowInFrontOrder" class="text-danger"></span>
+                        </div>
+
+                       @* <div class="form-group">
+                            <label asp-for="DOB"></label>
+                            <input asp-for="DOB" class="form-control" />
+                            <span asp-validation-for="DOB" class="text-danger"></span>
+                        </div>*@
+                    </div>
+                    <br /><br /><br />
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

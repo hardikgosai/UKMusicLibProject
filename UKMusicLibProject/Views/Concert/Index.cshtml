@@ -1,0 +1,92 @@
+﻿@model IEnumerable<ConcertViewModel>
+@using UKMusicLibProject.Models
+
+
+
+@*<div class="panel panel-primary">
+
+
+    <div class="panel-heading">Concert</div>
+    <div class="panel-body">
+        <div class="btn-group">
+            <a id="createEditConcertModal" asp-action="AddConcert" class="btn btn-primary">
+                Add Concert
+            </a>
+        </div>
+        <br /><br />*@
+
+<section id="Portfolio" class="content">
+
+    <!-- Container -->
+    <div class="container portfolio_title">
+
+        <!-- Title -->
+        <div class="section-title">
+            <h2>Concert List</h2>
+
+        </div>
+        <!--/Title -->
+
+    </div>
+
+    <div class="portfolio-top"></div>
+
+    <!-- Portfolio Filters -->
+    <div class="portfolio">
+
+        <div id="filters" class="sixteen columns">
+            <ul class="clearfix">
+             
+                <li>
+
+                    <a id="createArtist" asp-area="" asp-action="AddConcert">
+                        <h5>Add Concert</h5>
+                    </a>
+                </li>
+             
+            </ul>
+        </div>
+    </div>
+</section>
+<section id="aboutUs">
+    <!--Aboutus-->
+    <div class="inner_wrapper about-us aboutUs-container fadeInLeft animated wow">
+        <div class="container">
+          
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Location</th>
+                    <th>Revenue Generated</th>
+                    <th>Ticket Sold</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Date)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Location)</td>
+                        <td>@Html.DisplayFor(modelItem => item.RevenueGenerated)</td>
+                        <td>@Html.DisplayFor(modelItem => item.TicketSold)</td>
+                        <td>
+                            <a id="editConcertModal" asp-action="EditUser" asp-route-id="@item.ConcertId" class="btn btn-info">
+                                Edit
+                            </a>
+                            <a id="deleteConcertModal" asp-action="Delete" asp-route-id="@item.ConcertId" class="btn btn-danger">
+                                Delete
+                            </a>
+                            <a id="detailsConcertmodel" class="btn btn-success" asp-action="Details" asp-route-id="@item.ConcertId">Detail</a>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+        </div>
+        </div>
+        </section>
+
+@*    </div>
+</div>*@

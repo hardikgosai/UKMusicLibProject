@@ -1,0 +1,60 @@
+﻿@model UKMusicLibProject.ViewModel.UserLoginViewModel;
+
+@{
+    Layout = "_Layout_Login";
+}
+
+<section id="aboutUs">
+    <!--Aboutus-->
+    <div class="inner_wrapper about-us aboutUs-container fadeInLeft animated wow">
+        <div class="container">
+            <h2></h2>
+            <h2>Artist Portal-Login</h2>
+            <div class="inner_section">
+                <div class="row">
+        <div class="row mt-lg-5">
+            <div class="col-4 offset-4 border border-dark pl-5 pr-5 pb-5" >
+              @*  <center><h7>Log in </h7> </center>*@
+                <form asp-action="Login">
+                    <div class="form-group">
+                        <label asp-for="Email"></label>
+                        <input type="text" asp-for="Email" placeholder="Enter your email" class="form-control" autocomplete="off" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Password"></label>
+                        <input type="password" asp-for="Password" placeholder="Enter your password" class="form-control" autocomplete="off" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <center>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-success mb-2" value="Sign In" />
+                        </div>
+                    </center>
+
+                </form>
+
+                <div class="text-center">
+                    @* <a  class="text-light btn btn-primary font-weight-bold" asp-action="CreateUser" asp-controller="User">New Registration</a>
+                    *@<h7>Don't have any account?</h7>
+                    <a href="User/AddUser">sign up</a>
+                </div>
+
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        
+    </div>
+</section>
+
+
+
+
+
+
+
+
+

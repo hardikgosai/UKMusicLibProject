@@ -1,0 +1,77 @@
+﻿@model ArtistViewModel
+@using UKMusicLibProject.Models
+
+<section id="Portfolio" class="content">
+
+    <!-- Container -->
+    <div class="container portfolio_title">
+
+        <!-- Title -->
+        <div class="section-title">
+            <h2>Artist Detail</h2>
+
+        </div>
+        <!--/Title -->
+
+    </div>
+
+    <div class="portfolio-top"></div>
+
+    <!-- Portfolio Filters -->
+    <div class="portfolio">
+
+        <div id="filters" class="sixteen columns">
+            <ul class="clearfix">
+                <li>
+                    <a id="ListArtist" asp-area="" asp-action="ListArtist" data-filter="*">
+                        <h5>List Artist</h5>
+                    </a>
+                </li>
+                <li>
+
+                    <a id="createArtist" asp-area="" asp-action="UpdateArtist" asp-route-id="@Model.ArtistId">
+                        <h5>Edit Artist</h5>
+                    </a>
+                </li>
+                <li>
+
+                    <a id="createArtist" asp-area="" asp-action="DeleteArtist" asp-route-id="@Model.ArtistId">
+                        <h5>Delete Artist</h5>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<section id="aboutUs">
+    <!--Aboutus-->
+    <div class="inner_wrapper about-us aboutUs-container fadeInLeft animated wow">
+        <div class="container">
+            <h2>@Model.ArtistName</h2>
+            <h6>@Model.SortDescription</h6>
+            <div class="inner_section">
+                <div class="row">
+                    <div class="col-md-6"> <img class="img-responsive" src="@Model.ImageDataUrl" align=""> </div>
+                    <div class="col-md-6">
+                        @*<h3>My Passion</h3>*@
+                      @*  <p>@Model.LongDescription</p>*@
+
+@*                        <p>
+                            Lorem ipsum dolor sit amet, voluptaria, erant bonorum albucius et per, ei meis audire placerat eu, te eos porro veniam. An everti maiorum detracto mea. Lorem ipsum dolor sit amet, consectetur Morbi sagittis, sem quisci ipsum gravida tortor orci ipsum gravida tortor.
+                        </p>*@
+
+                        <ul class="about-us-list">
+                            <li class="points">About me: @Model.LongDescription</li>
+                            <li class="points">My Location: @Model.CurrentLocation</li>
+                            <li class="points">Country: @Model.Country</li>
+                             <li class="points">@Model.Gender </li>
+                             <li class="points">Age: @Model.Age</li>
+                           
+                        </ul><!-- /.about-us-list -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

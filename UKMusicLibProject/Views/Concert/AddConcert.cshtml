@@ -1,0 +1,76 @@
+﻿@model ConcertViewModel
+@using UKMusicLibProject.Models
+
+<section id="Portfolio" class="content">
+
+    <!-- Container -->
+    <div class="container portfolio_title">
+
+        <!-- Title -->
+        <div class="section-title">
+            <h2>Add Concert </h2>
+
+        </div>
+        <!--/Title -->
+
+    </div>
+
+    <div class="portfolio-top"></div>
+
+    <!-- Portfolio Filters -->
+    <div class="portfolio">
+
+        <div id="filters" class="sixteen columns">
+            <ul class="clearfix">
+
+                <li>
+
+                    <a id="Concert" asp-area="" asp-action="Index">
+                        <h5>List Concert</h5>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</section>
+<section id="aboutUs">
+    <!--Aboutus-->
+    <div class="inner_wrapper about-us aboutUs-container fadeInLeft animated wow">
+        <div class="container">
+
+            <form asp-action="AddConcert">
+                <div class="row">
+                    <div>
+                        <div class="form-group">
+                            <label asp-for="Date"></label>
+                            <input type="date" asp-for="Date" class="form-control" />
+                            <span asp-validation-for="Date" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Location"></label>
+                            <input asp-for="Location" class="form-control" />
+                            <span asp-validation-for="Location" class="text-danger"></span>
+
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="TicketSold"></label>
+                            <input asp-for="TicketSold" class="form-control" />
+                            <span asp-validation-for="TicketSold" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="RevenueGenerated"></label>
+                            <input asp-for="RevenueGenerated" class="form-control" />
+                            <span asp-validation-for="RevenueGenerated" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <br /><br /><br />
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
